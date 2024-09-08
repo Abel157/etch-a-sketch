@@ -7,12 +7,16 @@ function drawGrid(n){
             const grid=document.createElement("div");
             holder.className="holder";
             grid.className="grid";
+            grid.addEventListener('mouseenter',(e)=>{
+                grid.setAttribute("style","background-color:green;");
+            });
             holder.appendChild(grid);
         };
         container.appendChild(holder);
 
 }
 };
+
 
 drawGrid(6)
 

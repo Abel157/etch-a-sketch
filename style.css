@@ -1,3 +1,6 @@
+html,body {
+    height: 100%;
+}
 body{
     margin: 0;
     display: flex;
@@ -26,7 +29,4 @@ body{
     height:40px;
     box-sizing: border-box;
     
-}
-.grid:hover{
-    background-color: green;
 }
