@@ -9,6 +9,7 @@ function drawGrid(n=16){
     for (let i=0; i<n;i++){
         const holder=document.createElement("div");//needs to be created again and again to be appended
         container.appendChild(holder);
+        
         for(let j=0;j<n;j++){
             const grid=document.createElement("div");
             holder.className="holder";
@@ -30,11 +31,16 @@ function drawGrid(n=16){
                 }
             });
             grid.addEventListener('mouseenter',(e)=>{
+                opa+=10;
                 if (tog){
                     grid.style.backgroundColor="white"; 
                 }
                 else {
-                    grid.style.backgroundColor="green";
+                    let col0=Math.ceil((Math.random()*255));
+                    let col1=Math.ceil((Math.random()*255));
+                    let col2=Math.ceil((Math.random()*255));
+                    grid.style.backgroundColor=`rgb( ${col0}, ${col1}, ${col2})`;
+                    (e.target).style.opacity=`${opa}%`;
                 };
             });
             clr.addEventListener('click',(e)=>{
@@ -49,7 +55,7 @@ function drawGrid(n=16){
     };
 };
 btn.addEventListener('click',()=>{
-    let n= prompt("what size per side")||16;
+    let n= prompt("Number of squares per side: ")||16;
     if (n>100){
         alert("Maximum allowed Size is 100. A canvas of size 100 squares per side will be Displayed for you instead.");
         n=100;
@@ -71,7 +77,7 @@ ers.addEventListener('click',()=>{
         tog=false;
     }
 });
-
+let opa=0;
 
 drawGrid(16);
 

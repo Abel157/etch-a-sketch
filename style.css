@@ -41,6 +41,7 @@ body{
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.25s;
+    opacity: 0%;
 }
 button{
     align-self: flex-start;
@@ -52,6 +53,7 @@ button{
     width:150px;
     height: 50px;
     cursor: pointer;
+    font-size: 18px;
     transition: transform 0.3s;
 }
 button:hover{
