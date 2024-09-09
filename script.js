@@ -16,6 +16,8 @@ function drawGrid(n=16){
             grid.classList="grid";
             grid.style.width=cellSize+"px";
             grid.style.height=cellSize+"px";
+            grid.setAttribute("opacity", "");
+            grid.setAttribute("color", "");
             holder.appendChild(grid);
             let togGrid=false;
             grd.addEventListener('click',()=>{
@@ -31,16 +33,23 @@ function drawGrid(n=16){
                 }
             });
             grid.addEventListener('mouseenter',(e)=>{
-                opa+=10;
+                
                 if (tog){
                     grid.style.backgroundColor="white"; 
                 }
                 else {
-                    let col0=Math.ceil((Math.random()*255));
-                    let col1=Math.ceil((Math.random()*255));
-                    let col2=Math.ceil((Math.random()*255));
-                    grid.style.backgroundColor=`rgb( ${col0}, ${col1}, ${col2})`;
-                    (e.target).style.opacity=`${opa}%`;
+                    let currColor=grid.getAttribute("color");
+                    if (currColor===""){
+                        let col0=Math.ceil((Math.random()*255));
+                        let col1=Math.ceil((Math.random()*255));
+                        let col2=Math.ceil((Math.random()*255));
+                        let color=`rgb( ${col0}, ${col1}, ${col2})`
+                        grid.style.backgroundColor=color;
+                        grid.setAttribute("color",`${color}`);
+                    };
+                    let currOpacity=grid.getAttribute("opacity");
+                    grid.setAttribute("opacity",`${+currOpacity+10}`);
+                    grid.style.opacity=`${+currOpacity+10}%`;  
                 };
             });
             clr.addEventListener('click',(e)=>{
@@ -77,7 +86,7 @@ ers.addEventListener('click',()=>{
         tog=false;
     }
 });
-let opa=0;
+
 
 drawGrid(16);
 
