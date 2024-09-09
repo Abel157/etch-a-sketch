@@ -9,7 +9,6 @@ function drawGrid(n=16){
     for (let i=0; i<n;i++){
         const holder=document.createElement("div");//needs to be created again and again to be appended
         container.appendChild(holder);
-        
         for(let j=0;j<n;j++){
             const grid=document.createElement("div");
             holder.className="holder";
@@ -32,8 +31,7 @@ function drawGrid(n=16){
                     togGrid=false;
                 }
             });
-            grid.addEventListener('mouseenter',(e)=>{
-                
+            grid.addEventListener('mouseenter',(e)=>{ 
                 if (tog){
                     grid.style.backgroundColor="white"; 
                 }
@@ -53,14 +51,13 @@ function drawGrid(n=16){
                 };
             });
             clr.addEventListener('click',(e)=>{
-                grid.style.backgroundColor="white"
+                grid.style.backgroundColor="white";
+                grid.setAttribute("color","");
             });
             grid.addEventListener('click',(e)=>{
                 (e.target).style.backgroundColor="white"
            });
-           
         };
- 
     };
 };
 btn.addEventListener('click',()=>{
@@ -74,7 +71,6 @@ btn.addEventListener('click',()=>{
 });
 let tog=false;
 ers.addEventListener('click',()=>{
-    
     if (!tog){
         ers.style.backgroundColor="red";
         ers.textContent="Stop";
@@ -86,8 +82,6 @@ ers.addEventListener('click',()=>{
         tog=false;
     }
 });
-
-
 drawGrid(16);
 
 
