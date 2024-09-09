@@ -33,7 +33,9 @@ function drawGrid(n=16){
             });
             grid.addEventListener('mouseenter',(e)=>{ 
                 if (tog){
-                    grid.style.backgroundColor="white"; 
+                    grid.style.backgroundColor="white";
+                    grid.setAttribute("color","");
+                    grid.setAttribute("opacity",""); 
                 }
                 else {
                     let currColor=grid.getAttribute("color");
@@ -53,9 +55,12 @@ function drawGrid(n=16){
             clr.addEventListener('click',(e)=>{
                 grid.style.backgroundColor="white";
                 grid.setAttribute("color","");
+                grid.setAttribute("opacity","");
             });
             grid.addEventListener('click',(e)=>{
-                (e.target).style.backgroundColor="white"
+                (e.target).style.backgroundColor="white";
+                grid.setAttribute("color","");
+                grid.setAttribute("opacity","");
            });
         };
     };
