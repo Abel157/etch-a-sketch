@@ -1,5 +1,8 @@
 const container=document.querySelector(".container");
 const btn=document.querySelector("button");
+const clr=document.querySelector('#clr');
+const ers=document.querySelector('#ers');
+const grd=document.querySelector('#grd');
 function drawGrid(n=16){
     const cellSize = 600/n;
     console.log(cellSize);
@@ -13,22 +16,63 @@ function drawGrid(n=16){
             grid.style.width=cellSize+"px";
             grid.style.height=cellSize+"px";
             holder.appendChild(grid);
-            
-            grid.addEventListener('mouseenter',(e)=>{
-                grid.style.backgroundColor="green";
+            let togGrid=false;
+            grd.addEventListener('click',()=>{
+                if (!togGrid){
+                    grd.textContent="Show Grid";
+                    grid.style.border="0px solid black";
+                    togGrid=true;   
+                }
+                else {
+                    grd.textContent="Hide Grid";
+                    grid.style.border="1px solid black";
+                    togGrid=false;
+                }
             });
+            grid.addEventListener('mouseenter',(e)=>{
+                if (tog){
+                    grid.style.backgroundColor="white"; 
+                }
+                else {
+                    grid.style.backgroundColor="green";
+                };
+            });
+            clr.addEventListener('click',(e)=>{
+                grid.style.backgroundColor="white"
+            });
+            grid.addEventListener('click',(e)=>{
+                (e.target).style.backgroundColor="white"
+           });
            
         };
-        
-        
-    
+ 
     };
 };
 btn.addEventListener('click',()=>{
-    const n=prompt("what size per side");
-    container.replaceChildren()
+    let n= prompt("what size per side")||16;
+    if (n>100){
+        alert("Maximum allowed Size is 100. A canvas of size 100 squares per side will be Displayed for you instead.");
+        n=100;
+    }
+    container.replaceChildren();
     drawGrid(n);
 });
+let tog=false;
+ers.addEventListener('click',()=>{
+    
+    if (!tog){
+        ers.style.backgroundColor="red";
+        ers.textContent="Stop";
+        tog=true;
+    }
+    else {
+        ers.style.backgroundColor="rgb(87, 126, 253)";
+        ers.textContent="Erase";
+        tog=false;
+    }
+});
+
+
 drawGrid(16);
 
 

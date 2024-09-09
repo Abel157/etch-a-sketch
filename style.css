@@ -16,6 +16,12 @@ body{
     max-width: 900px;
     
 }
+.btn{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -33,6 +39,8 @@ body{
     padding: 1px;
     border:1px solid  black;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.25s;
 }
 button{
     align-self: flex-start;
